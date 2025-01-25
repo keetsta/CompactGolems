@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "compactgolems",
+  "version": "${version}",
+  "name": "Compact Golems",
+  "description": "This mod adds a craftable compact iron golem and snowman.",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/compactgolems/icon.png",
+  "environment": "*",
+  "accessWidener" : "compact-golems.accesswidener",
+  "entrypoints": {
+    "client": [
+      "me.keet.compactgolems.client.CompactgolemsClient"
+    ],
+    "main": [
+      "me.keet.compactgolems.Compactgolems"
+    ]
+  },
+  "mixins": [
+    "compactgolems.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
