@@ -7,7 +7,7 @@
   "authors": ["keet"],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/compactgolems/icon.png",
+  "icon": "assets/compact-golems/icon.png",
   "environment": "*",
   "accessWidener" : "compact-golems.accesswidener",
   "entrypoints": {
