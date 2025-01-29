@@ -57,7 +57,7 @@ final class CompactItem extends SpawnEggItem {
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
 
-        if (world.getBlockEntity(blockPos) instanceof Spawner spawner) {
+        if (world.getBlockEntity(blockPos) instanceof Spawner) {
             return ActionResult.FAIL;
         }
 
