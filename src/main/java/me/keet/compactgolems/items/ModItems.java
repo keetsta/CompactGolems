@@ -50,7 +50,7 @@ public class ModItems {
 
 final class CompactItem extends SpawnEggItem {
     public CompactItem(EntityType<? extends MobEntity> type, Item.Settings settings) {
-        super(type, settings);
+        super(type, 0, 0, settings);
         SPAWN_EGGS.remove(type, this);
     }
 
