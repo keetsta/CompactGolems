@@ -11,30 +11,32 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ModItems {
-    public static Item register(Item item, String id) {
-        Identifier itemID = Identifier.of(Compactgolems.MOD_ID, id);
-
-        return Registry.register(Registries.ITEM, itemID, item);
+    public static Item register(Item item, RegistryKey<Item> registryKey) {
+        return Registry.register(Registries.ITEM, registryKey.getValue(), item);
     }
 
     public static void initialize() {
         modifyGroups();
     }
 
+    public static final RegistryKey<Item> COMPACT_IRON_GOLEM_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Compactgolems.MOD_ID, "compact_iron_golem"));
     public static final Item COMPACT_IRON_GOLEM = register(
-            new CompactItem(EntityType.IRON_GOLEM, new Item.Settings()),
-            "compact_iron_golem"
+            new CompactItem(EntityType.IRON_GOLEM, new Item.Settings().registryKey(COMPACT_IRON_GOLEM_KEY)),
+            COMPACT_IRON_GOLEM_KEY
     );
 
+    public static final RegistryKey<Item> COMPACT_SNOWMAN_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Compactgolems.MOD_ID, "compact_snowman"));
     public static final Item COMPACT_SNOWMAN = register(
-            new CompactItem(EntityType.SNOW_GOLEM, new Item.Settings()),
-            "compact_snowman"
+            new CompactItem(EntityType.SNOW_GOLEM, new Item.Settings().registryKey(COMPACT_SNOWMAN_KEY)),
+            COMPACT_SNOWMAN_KEY
     );
 
     public static void modifyGroups() {
@@ -48,7 +50,7 @@ public class ModItems {
 
 final class CompactItem extends SpawnEggItem {
     public CompactItem(EntityType<? extends MobEntity> type, Item.Settings settings) {
-        super(type, 0, 0, settings);
+        super(type, settings);
         SPAWN_EGGS.remove(type, this);
     }
 

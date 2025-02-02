@@ -1,20 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S ",
-    " # ",
-    " # "
-  ],
   "key": {
-    "#": {
-      "item": "minecraft:snow_block"
-    },
-    "S": {
-      "item": "minecraft:carved_pumpkin"
-    }
+    "#": "minecraft:snow_block",
+    "S": "minecraft:carved_pumpkin"
   },
+  "pattern": [
+    "S",
+    "#",
+    "#"
+  ],
   "result": {
-    "id": "compact-golems:compact_snowman",
-    "count": 1
+    "count": 1,
+    "id": "compact-golems:compact_snowman"
   }
 }
